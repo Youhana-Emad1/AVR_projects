@@ -1,0 +1,13 @@
+../Src/RCC_program.c:23:6:RCC_voidSetClockStatus	14
+../Src/RCC_program.c:72:6:RCC_voidSetSystemClock	5
+../Src/RCC_program.c:94:6:RCC_voidSet_HSE_configurations	3
+../Src/RCC_program.c:109:6:RCC_voidSet_PLL_configurations	18
+../Src/RCC_program.c:232:6:RCC_voidSet_APB2_clockPrescaler	6
+../Src/RCC_program.c:269:6:RCC_voidSet_APB1_clockPrescaler	6
+../Src/RCC_program.c:306:6:RCC_voidSet_AHB_clockPrescaler	10
+../Src/RCC_program.c:376:6:RCC_voidEnable_AHB_clock	18
+../Src/RCC_program.c:451:6:RCC_voidDisable_AHB_clock	18
+../Src/RCC_program.c:526:6:RCC_voidEnable_APB1_clock	21
+../Src/RCC_program.c:613:6:RCC_voidDisable_APB1_clock	21
+../Src/RCC_program.c:700:6:RCC_voidEnable_APB2_clock	11
+../Src/RCC_program.c:747:6:RCC_voidDisable_APB2_clock	11

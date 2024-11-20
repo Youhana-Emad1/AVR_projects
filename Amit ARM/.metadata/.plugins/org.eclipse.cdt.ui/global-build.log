@@ -1,0 +1,22 @@
+15:55:50 **** Incremental Build of configuration Debug for project 7_segment_display ****
+make -j8 all 
+arm-none-eabi-size   7_segment_display.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2808	     52	   1564	   4424	   1148	7_segment_display.elf
+Finished building: default.size.stdout
+ 
+16:07:01 **** Incremental Build of configuration Debug for project 7_segment_display ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/SSD_program.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F3 -DSTM32F303RETx -DNUCLEO_F303RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/SSD_program.d" -MT"Src/SSD_program.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/SSD_program.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F3 -DSTM32F303RETx -DNUCLEO_F303RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "7_segment_display.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\AMIT projects\Amit ARM\first_project_led_with_switch\STM32F303RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="7_segment_display.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 7_segment_display.elf
+ 
+arm-none-eabi-size   7_segment_display.elf 
+arm-none-eabi-objdump -h -S  7_segment_display.elf  > "7_segment_display.list"
+   text	   data	    bss	    dec	    hex	filename
+   2820	     52	   1564	   4436	   1154	7_segment_display.elf
+Finished building: default.size.stdout
+ 
+Finished building: 7_segment_display.list
+ 

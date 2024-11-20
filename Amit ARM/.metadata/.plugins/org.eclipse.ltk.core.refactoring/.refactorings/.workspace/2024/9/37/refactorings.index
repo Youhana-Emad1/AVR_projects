@@ -1,0 +1,4 @@
+1726137333609	Rename resource 'first_project_led_with_switch'
+1726142735811	Delete 3 resources
+1726142760594	Delete resource '7_segment_display/Src/SSD_program.c'
+1726145158449	Delete resource '7_segment_display/Inc/GPIO_LEDS_INIT.h'
