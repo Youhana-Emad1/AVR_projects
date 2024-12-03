@@ -1,89 +1,84 @@
-/*  
- * Weather Station.c   
- *  
- * Created: 9/7/2024 11:55:07 PM   
- * Author : tony6   
- */   
+#ifndef F_CPU
+#define F_CPU 1600000UL
+#endif
+#include <avr/io.h>
+#include <util/delay.h>
+#include "LCD/lcd.h"
 
-/* UTILES_LIB */  
-#define F_CPU 16000000UL  
-#include <util/delay.h>  
-#include "STD_TYPES.h"  
-#include "BIT_MATH.h"  
-#include "VECTOR_NUM.h"  
+void adc_init() {
+	ADMUX = (1<<REFS0);
+	ADCSRA = (1<<ADEN)|(1<<ADPS2)|(1<<ADPS1)|(1<<ADPS0);
+}
 
-/* MCAL */  
-#include "ADC_interface.h"  
-#include "ADC_register.h"  
-#include "DIO_interface.h"  
-#include "DIO_register.h"  
-#include "PWM_interface.h"  
+uint16_t adc_read(uint8_t ch) {
+	ch &= 0b00000111;
+	ADMUX = (ADMUX & 0xF8)|ch;
+	ADCSRA |= (1<<ADSC);
+	while(ADCSRA & (1<<ADSC));
+	return (ADC);
+}
 
-/* HAL */  
-#include "DCM_interface.h"  
-#include "DCM_config.h"  
-#include "LCD_interface.h"  
-#include "LCD_config.h"  
-#include "LCD_private.h"  
-#include "LM35_interface.h"  
-#include "LM35_config.h"  
-#include "PWM_config.h"  
-#include "PWM_private.h"  
-#include "PWM_register.h"  
+void pwm_init() {
+	TCCR0 = (1 << WGM00) | (1 << WGM01) | (1 << COM01) | (1 << CS01) | (1 << CS00);
+	DDRB |= (1 << PB3);
+}
 
-int main(void)
-{
-	// Initialize the LCD
-	LCD_voidInit();
+void set_motor_speed(uint8_t duty_cycle) {
+	OCR0 = (duty_cycle * 255) / 100;
+}
 
-	// Initialize the ADC and LM35 sensor
-	LM35_voidInit();
+int main() {
+	DDRB = 0xFF;
+	uint16_t adc_result0;
+	int temp;
+	char buffer[10];
+	uint8_t duty_cycle = 0;
 
-	// Initialize the DC motor
-	DCM_voidInit(DCM_MOTOR_A);
-	
-		// Initialize the PWM Signal
-		PWM_voidInitChannel_0();
-		
-	while (1)
-	{
-		// Read the temperature from the LM35 sensor
-		u8 temperature;
-		LM35_voidGetTemperature(&temperature);
+	adc_init();
+	lcd_init(LCD_DISP_ON_CURSOR);
+	pwm_init();
 
-		// Control the DC motor based on the temperature
-		u8 duty_cycle;
-		if (temperature < 20)
-		{
+	lcd_clrscr();
+	lcd_gotoxy(0, 0);
+
+	_delay_ms(50);
+
+	while (1) {
+		adc_result0 = adc_read(0);
+		temp = adc_result0 / 2.01;
+
+		lcd_clrscr();
+		lcd_gotoxy(0, 0);
+		itoa(temp, buffer, 10);
+		lcd_puts("Temp=");
+		lcd_puts(buffer);
+		lcd_gotoxy(7, 0);
+		lcd_puts("C");
+
+		if (temp >= 20 && temp < 25) {
 			duty_cycle = 50;
-		}
-		else if (temperature < 25)
-		{
-			duty_cycle = 75;
-		}
-		else if (temperature < 30)
-		{
+			lcd_gotoxy(0, 1);
+			lcd_puts("Fan ON 50%");
+			} else if (temp >= 25 && temp < 30) {
+			duty_cycle = 70;
+			lcd_gotoxy(0, 1);
+			lcd_puts("Fan ON 70%");
+			} else if (temp >= 30 && temp < 35) {
 			duty_cycle = 90;
-		}
-		else if (temperature <= 40)
-		{
+			lcd_gotoxy(0, 1);
+			lcd_puts("Fan ON 90%");
+			} else if (temp >= 35 && temp <= 40) {
 			duty_cycle = 100;
-		}
-		else
-		{
+			lcd_gotoxy(0, 1);
+			lcd_puts("Fan ON 100%");
+			} else {
 			duty_cycle = 0;
+			lcd_gotoxy(0, 1);
+			lcd_puts("Fan OFF 0%");
 		}
-		DCM_voidOn(DCM_MOTOR_A, DCM_CLOCK_WISE);
-		DCM_voidControlSpeed(DCM_MOTOR_A, DCM_CLOCK_WISE, duty_cycle);
 
-		// Display the temperature on the LCD
-		LCD_voidClear();
-		LCD_voidGoToSpecificPosition(LCD_LINE_ONE, 0);
-		LCD_voidDisplayNumber(temperature);
-		LCD_voidDisplayString(" C");
+		set_motor_speed(duty_cycle);
 
 		_delay_ms(1000);
 	}
-
-	return 0;
 }

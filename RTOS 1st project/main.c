@@ -60,16 +60,6 @@ void leds(void)
 	}
 }
 
-// ------------ Yellow Led Pin 4 Port D ------------------
-LED_voidOff(DIO_PORTD, DIO_PIN0, LED_FORWARD_CONNECTION); // led red off
-LED_voidOff(DIO_PORTD, DIO_PIN7, LED_FORWARD_CONNECTION); // led green off
-LED_voidOn(DIO_PORTD, DIO_PIN4, LED_FORWARD_CONNECTION);
-for (int i = 1; i <= 5; i++)
-{
-	SSD_voidDisplayMultiplexedNumber(i);
-	_delay_ms(5000);
-}
-
 //--------------main function -----------------------------
 int main(void)
 {

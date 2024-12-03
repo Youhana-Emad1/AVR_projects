@@ -2,11 +2,17 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-LCD\lcd.c
+DIO_program.c
+
+GI_program.c
+
+LED_program.c
 
 main.c
 
-src\ASF\mega\boards\stk600\rcx_x\init.c
+RTOS_program.c
 
-src\main.c
+RTOS_TMR_program.c
+
+SSD_program.c
 
