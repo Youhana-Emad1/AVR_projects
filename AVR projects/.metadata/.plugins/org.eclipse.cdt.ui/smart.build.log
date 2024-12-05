@@ -1,0 +1,8 @@
+13:09:43 **** Clean-only build of configuration Debug for project smart ****
+make clean 
+rm -rf  LCD/lcd.o main.o src/ASF/mega/boards/stk600/rcx_x/init.o src/main.o   
+rm -rf  LCD/lcd.d main.d src/ASF/mega/boards/stk600/rcx_x/init.d src/main.d   
+rm -rf "weather Station.elf" "weather Station.a" "weather Station.hex" "weather Station.lss" "weather Station.eep" "weather Station.map" "weather Station.srec" "weather Station.usersignatures"
+
+13:09:43 Build Finished. 0 errors, 0 warnings. (took 254ms)
+

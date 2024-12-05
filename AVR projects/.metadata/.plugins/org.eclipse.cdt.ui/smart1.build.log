@@ -1,0 +1,24 @@
+13:25:41 **** Incremental Build of configuration Debug for project smart1 ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+../main.c:11:17: warning: asf.h: No such file or directory
+In file included from ../main.c:12:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:13:21: error: LCD/lcd.h: No such file or directory
+../main.c: In function 'main':
+../main.c:38: warning: implicit declaration of function 'board_init'
+../main.c:46: warning: implicit declaration of function 'lcd_init'
+../main.c:46: error: 'LCD_DISP_ON_CURSOR' undeclared (first use in this function)
+../main.c:46: error: (Each undeclared identifier is reported only once
+../main.c:46: error: for each function it appears in.)
+../main.c:49: warning: implicit declaration of function 'lcd_clrscr'
+../main.c:50: warning: implicit declaration of function 'lcd_gotoxy'
+../main.c:60: warning: implicit declaration of function 'itoa'
+../main.c:61: warning: implicit declaration of function 'lcd_puts'
+make: *** [main.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+
+13:25:42 Build Failed. 3 errors, 8 warnings. (took 262ms)
+

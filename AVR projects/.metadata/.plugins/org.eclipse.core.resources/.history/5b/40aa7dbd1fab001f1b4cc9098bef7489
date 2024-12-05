@@ -1,0 +1,4 @@
+weather Station/LCD/lcd.o weather\ Station/LCD/lcd.o:  \
+ ../weather\ Station/LCD/lcd.c ../weather\ Station/LCD/lcd.h
+
+../weather\ Station/LCD/lcd.h:
