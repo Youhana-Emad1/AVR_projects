@@ -1,74 +1,84 @@
 # README
 
-## Student Information
-- **Name:** Youhana Emad Youhana  
-- **Section:** 7  
-- **Department:** Communication  
-- **Code:** 4230497  
+##Information
+- Name: Youhana Emad Youhana  
+- Section: 7  
+- Department: Communication  
+- Code: 4230497  
 
 ---
 
-## Projects Overview
+## Project Overview
 
-### 1st Project: Simple Calculator
-In this project, I developed a simple calculator using the Atmega 32 microcontroller (AVR). The calculator can perform various arithmetic operations, including addition, subtraction, multiplication, and division. 
+### 1. Simple Calculator
+I created a simple calculator using the Atmega 32 microcontroller (AVR), capable of performing basic arithmetic operations: addition, subtraction, multiplication, and division.
 
-**Project Highlights:**
-- **Microcontroller:** Atmega 32 (AVR)
-- **Display:** 2x16 Liquid Crystal Display (LCD)
-- **Input:** 4x4 Keypad
-- **Development Environment:** Eclipse
+Highlights:
+- Microcontroller: Atmega 32 (AVR)
+- Display: 2x16 LCD
+- Input: 4x4 Keypad
+- Development Environment: Eclipse
 
-### 2nd Project: Weather Station System
-I designed and developed a weather station utilizing several components, which includes a temperature sensor for monitoring environmental conditions.
+---
 
-**Project Highlights:**
-- **Microcontroller:** Atmega 32 (AVR)
-- **Temperature Sensor:** LM35
-- **Fan Control:** DC Fan
-- **Display:** 2x16 LCD
-- **Development Environment:** Eclipse
+### 2. Weather Station System
+This project involved designing a weather station that monitors temperature using a dedicated sensor.
 
-**Functionality:**
-1. If the temperature is less than 20°C, the fan is off.
-2. If the temperature is between 20°C and 22°C, the fan operates at 50% duty cycle.
-3. If the temperature is between 22°C and 25°C, the fan operates at 75% duty cycle.
-4. If the temperature is between 25°C and 30°C, the fan operates at 90% duty cycle.
-5. If the temperature exceeds 30°C, the fan operates at 100% duty cycle.
+Highlights:
+- Microcontroller: Atmega 32 (AVR)
+- Temperature Sensor: LM35
+- Fan Control: DC Fan
+- Display: 2x16 LCD
+- Development Environment: Eclipse
 
-### 3rd Project: Smart Home System
-In this project, I developed a Smart Home System employing a master-slave configuration with two Atmega 32 microcontrollers.
+Functionality:
+1. Fan off if temperature < 20°C.
+2. 50% duty cycle (20°C - 22°C).
+3. 75% duty cycle (22°C - 25°C).
+4. 90% duty cycle (25°C - 30°C).
+5. 100% duty cycle if temperature > 30°C.
 
-**Project Highlights:**
-- **Microcontrollers:** 2 Atmega 32 (AVR) (master and slave)
-- **Display:** 2x16 LCD
-- **Input:** 4x4 Keypad
-- **Additional Components:** 3.3mm LEDs and switches
-- **Development Environment:** Eclipse
+---
 
-### 4th Project: Traffic Light System Based on RTOS
-I designed and developed a traffic light system implemented with a real-time operating system (RTOS).
+### 3. Smart Home System
+I developed a Smart Home System using a master-slave configuration with two Atmega 32 microcontrollers.
 
-**Project Highlights:**
-- **Microcontroller:** Atmega 32 (AVR)
-- **LEDs:** 3x3.3mm LEDs
-- **Development Environment:** Eclipse
+Highlights:
+- Microcontrollers: 2 Atmega 32 (AVR)
+- Display: 2x16 LCD
+- Input: 4x4 Keypad
+- Components: 3.3mm LEDs and various switches
+- Development Environment: Eclipse
 
-**Functionality:**
-- The red LED is illuminated for 60 seconds.
-- The yellow LED (waiting) is illuminated next for 5 seconds.
-- The green LED is illuminated for 30 seconds.
-- The system then cycles back to the yellow LED for 5 seconds before returning to the red LED.
+---
 
-### 5th Project: Traffic Light System Based on FreeRTOS
-This project involves a traffic light system designed using FreeRTOS to simulate a traffic control system.
+### 4. Traffic Light System (RTOS)
+This project features a traffic light system built with a real-time operating system (RTOS).
 
-**Project Highlights:**
-- **Microcontroller:** Atmega 32 (AVR)
-- **LEDs:** 3x3.3mm LEDs
-- **Development Environment:** Eclipse
+Highlights:
+- Microcontroller: Atmega 32 (AVR)
+- LEDs: 3x3.3mm
+- Development Environment: Eclipse
 
-**Functionality:**
-- Similar to the previous traffic light project, the red LED remains on for 60 seconds, followed by a 5-second illumination of the yellow LED (waiting).
-- The green LED is then illuminated for 30 seconds, followed by another 5 seconds of the yellow LED before reverting back to the red LED.
+Functionality:
+- Red LED: 60 seconds 
+- Yellow LED (waiting): 5 seconds 
+- Green LED: 30 seconds 
+- Cycle back to Yellow for 5 seconds before returning to Red.
 
+---
+
+### 5. Traffic Light System (FreeRTOS)
+I designed this traffic light system using FreeRTOS for traffic control simulation.
+
+Highlights:
+- Microcontroller: Atmega 32 (AVR)
+- **LEDs: 3x3.3mm
+- Development Environment: Eclipse
+
+Functionality:
+- Follows the same timing rules as the RTOS-based project.
+
+--- 
+
+Feel free to reach out for more details on any of the projects!
